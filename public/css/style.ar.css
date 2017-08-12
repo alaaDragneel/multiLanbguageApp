@@ -1,0 +1,36 @@
+/* start the product view */
+.thumbnail {
+    background-color: #FFF;
+
+}
+.thumbnail img {
+    height: 250px;
+    width: 100%;
+}
+
+.thumbnail .desc {
+    color: #7f7f7f;
+}
+
+.thumbnail .caption {
+    direction: rtl;
+}
+
+/* end the product view */
+
+
+.float {
+    float: left !important;
+}
+
+.floatRev {
+    float: right !important;
+}
+
+.float {
+    float: right !important;
+}
+
+.floatRev {
+    float: left !important;
+}

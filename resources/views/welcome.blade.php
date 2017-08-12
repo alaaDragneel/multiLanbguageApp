@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LaravelLocalization::getCurrentLocale() }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,6 +63,7 @@
                 margin-bottom: 30px;
             }
         </style>
+        <link rel="stylesheet" href="/css/style.{{ LaravelLocalization::getCurrentLocale() }}.css">
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -79,15 +80,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    {{ trans('main.Brand') }}
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="links float">
+                    @foreach (LaravelLocalization::getSupportedLocales() as $key => $value)
+                        <a href="{{ LaravelLocalization::getLocalizedUrl($key) }}">{{ $value['native'] }}</a>
+                    @endforeach
                 </div>
             </div>
         </div>

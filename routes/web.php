@@ -1,5 +1,7 @@
 <?php
 
+use LaravelLocalization as Localization;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +13,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => Localization::setLocale()], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    Route::get('/home', 'HomeController@index');
+
+    Route::get('/posts', 'PostController@index');
+
+    Route::post('/posts/store', 'PostController@store');
 });
+
+Auth::routes();
